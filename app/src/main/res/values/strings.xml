@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MilwaukeeDPW</string>
+    <string name="next_pickup">Next Pickup</string>
+    <string name="updated">Updated: </string>
 </resources>

@@ -1,4 +1,4 @@
-package com.JCap.MilwaukeeDpw;
+package com.jcap.milwaukeedpw;
 
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -7,9 +7,10 @@ import android.text.Html;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.concurrent.ExecutionException;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,14 +25,12 @@ public class MainActivity extends AppCompatActivity {
         PickupTask task = new PickupTask();
         AsyncTask<Void, Void, String> taskResult = task.execute();
 
-        String updatedTime = "Updated: " + new SimpleDateFormat("M/d HH:mm:ss").format(new Date());
+        String updatedTime = getString(R.string.updated) + new SimpleDateFormat("M/d HH:mm:ss", Locale.US).format(new Date());
 
         try {
             nextPickupText.setText(Html.fromHtml(taskResult.get()));
             updatedText.setText(updatedTime);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
     }

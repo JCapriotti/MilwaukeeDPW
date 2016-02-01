@@ -1,4 +1,4 @@
-package com.JCap.MilwaukeeDpw;
+package com.jcap.milwaukeedpw;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

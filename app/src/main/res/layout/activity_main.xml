@@ -7,50 +7,21 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.JCap.MilwaukeeDpw.MainActivity">
-
-    <menu xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <item
-            android:id="@+id/action_refresh"
-            android:orderInCategory="100"
-            android:showAsAction="always"
-            android:icon="@drawable/ic_action_refresh"
-            android:title="Refresh"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
-        <item
-            android:id="@+id/action_settings"
-            android:title="Settings"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content">
-        </item>
-
-    </menu>
+    tools:context="com.jcap.milwaukeedpw.MainActivity">
 
     <TextView
         android:id="@id/pickupUpdated"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="@string/updated" />
+
+    <TextView
+        android:id="@id/nextPickupText"
+        android:layout_below="@id/pickupUpdated"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="Updated: " />
-
-    <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_below="@id/pickupUpdated"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:orientation="vertical" >
-
-        <TextView
-            android:id="@id/nextPickupText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!" />
-
-    </ScrollView>
+        android:scrollbars="vertical"
+        android:text="@string/next_pickup" />
 
 </RelativeLayout>

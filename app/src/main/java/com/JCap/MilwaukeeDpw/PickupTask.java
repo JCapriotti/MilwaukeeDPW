@@ -1,11 +1,9 @@
-package com.JCap.MilwaukeeDpw;
+package com.jcap.milwaukeedpw;
 
 import android.os.AsyncTask;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-
-import java.io.IOException;
 
 public class PickupTask extends AsyncTask<Void, Void, String> {
     private String getNextPickup() {
@@ -20,9 +18,11 @@ public class PickupTask extends AsyncTask<Void, Void, String> {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        String data = doc.getElementById("centerZone").html();
 
-        return data;
+        if (doc == null)
+            return "Unable to get data";
+        else
+            return doc.getElementById("centerZone").html();
     }
 
     @Override

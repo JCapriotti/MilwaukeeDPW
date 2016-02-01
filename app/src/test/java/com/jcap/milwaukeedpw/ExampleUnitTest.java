@@ -1,4 +1,4 @@
-package com.JCap.MilwaukeeDpw;
+package com.jcap.milwaukeedpw;
 
 import org.junit.Test;
 
