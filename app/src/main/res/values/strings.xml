@@ -2,4 +2,15 @@
     <string name="app_name">MilwaukeeDPW</string>
     <string name="next_pickup">Next Pickup</string>
     <string name="updated">Updated: </string>
+    <string name="house_number">House Number</string>
+    <string name="directional">Directional</string>
+    <string name="street_name">Street Name</string>
+    <string name="suffix">Suffix</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="settings">Settings</string>
 </resources>

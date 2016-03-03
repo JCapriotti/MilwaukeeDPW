@@ -2,4 +2,6 @@
 <resources>
     <item name="nextPickupText" type="id" />
     <item name="pickupUpdated" type="id" />
+    <item name="nav_pickup" type="id" />
+    <item name="nav_settings" type="id" />
 </resources>
