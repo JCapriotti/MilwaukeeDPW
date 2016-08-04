@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="directionalNames">
+        <item>North</item>
+        <item>South</item>
+        <item>East</item>
+        <item>West</item>
+    </string-array>
+    <string-array name="directionalValues">
+        <item>N</item>
+        <item>S</item>
+        <item>E</item>
+        <item>W</item>
+    </string-array>
+
+    <string-array name="streetValues">
+        <item>Mabbett</item>
+        <item>Oklahoma</item>
+    </string-array>
+
+    <string-array name="suffixNames">
+        <item>Ave</item>
+    </string-array>
+    <string-array name="suffixValues">
+        <item>AV</item>
+    </string-array>
+</resources>
