@@ -22,7 +22,8 @@ import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        SharedPreferences.OnSharedPreferenceChangeListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +41,21 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPref.registerOnSharedPreferenceChangeListener(this);
+
+        loadDisplay(sharedPref);
+    }
+
+    private void loadDisplay(SharedPreferences prefs) {
         TextView nextPickupText = (TextView)findViewById(R.id.nextPickupText);
         TextView updatedText = (TextView)findViewById(R.id.pickupUpdated);
 
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         PickupLocationParameters params = new PickupLocationParameters(
-                sharedPref.getString(getString(R.string.pref_key_houseNumber), ""),
-                sharedPref.getString(getString(R.string.pref_key_directional), ""),
-                sharedPref.getString(getString(R.string.pref_key_street), ""),
-                sharedPref.getString(getString(R.string.pref_key_suffix), ""));
+                prefs.getString(getString(R.string.pref_key_houseNumber), ""),
+                prefs.getString(getString(R.string.pref_key_directional), ""),
+                prefs.getString(getString(R.string.pref_key_street), ""),
+                prefs.getString(getString(R.string.pref_key_suffix), ""));
 
         PickupTask task = new PickupTask();
         AsyncTask<PickupLocationParameters, Void, String> taskResult = task.execute(params);
@@ -60,7 +67,11 @@ public class MainActivity extends AppCompatActivity
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
+    }
 
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        loadDisplay(prefs);
     }
 
     @Override
@@ -82,20 +93,20 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch(item.getItemId())
+        {
+            case R.id.action_settings:
+            {
+                Intent intent = new Intent();
+                intent.setClassName(this, "com.jcap.milwaukeedpw.SettingsActivity");
+                startActivity(intent);
+                return true;
+            }
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.

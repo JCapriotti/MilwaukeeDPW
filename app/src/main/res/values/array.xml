@@ -16,12 +16,15 @@
     <string-array name="streetValues">
         <item>Mabbett</item>
         <item>Oklahoma</item>
+        <item>Van Buren</item>
     </string-array>
 
     <string-array name="suffixNames">
         <item>Ave</item>
+        <item>St</item>
     </string-array>
     <string-array name="suffixValues">
         <item>AV</item>
+        <item>ST</item>
     </string-array>
 </resources>
