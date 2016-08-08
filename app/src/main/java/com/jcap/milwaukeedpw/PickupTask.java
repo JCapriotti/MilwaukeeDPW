@@ -9,7 +9,7 @@ public class PickupTask extends AsyncTask<PickupLocationParameters, Void, String
     private String getNextPickup(PickupLocationParameters params) {
         Document doc = null;
         try {
-            doc = Jsoup.connect("http://mpw.milwaukee.gov/services/garbage_day")
+            doc = Jsoup.connect("http://mpw.milwaukee.gov/services/garbage_day?embed=Y")
                     .data("laddr", params.houseNumber)
                     .data("sdir", params.directional)
                     .data("sname", params.street)
@@ -22,7 +22,7 @@ public class PickupTask extends AsyncTask<PickupLocationParameters, Void, String
         if (doc == null)
             return "Unable to get data";
         else
-            return doc.getElementById("centerZone").html();
+            return doc.html();
     }
 
     @Override
