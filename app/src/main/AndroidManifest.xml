@@ -25,8 +25,16 @@
             android:name=".SettingsActivity"
             android:label="@string/preferences"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".AppSettingsActivity"
+            android:label="@string/title_activity_app_settings"
+            android:parentActivityName=".MainActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jcap.milwaukeedpw.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

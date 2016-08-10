@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity
             case R.id.action_settings:
             {
                 Intent intent = new Intent();
-                intent.setClassName(this, "com.jcap.milwaukeedpw.SettingsActivity");
+                intent.setClassName(this, "com.jcap.milwaukeedpw.AppSettingsActivity");
                 startActivity(intent);
                 return true;
             }
