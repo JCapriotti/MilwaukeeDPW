@@ -4,17 +4,20 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
+    <!-- Navigation Menu -->
+    <string name="nav_settings">Settings</string>
+    <string name="nav_about">About</string>
 
+    <!-- MainActivity Strings -->
     <string name="next_pickup">Next Pickup</string>
     <string name="updated">Updated: </string>
     <string name="preferences">Preferences</string>
 
+    <!-- Settings Activity -->
+    <string name="pref_header_address">Address Settings</string>
     <string name="pref_key_houseNumber">pref_key_houseNumber</string>
     <string name="pref_key_street">pref_key_street</string>
     <string name="pref_key_directional">pref_key_directional</string>
     <string name="pref_key_suffix">pref_key_suffix</string>
     <string name="title_activity_app_settings">Settings</string>
-
-    <string name="pref_header_general">General</string>
 </resources>

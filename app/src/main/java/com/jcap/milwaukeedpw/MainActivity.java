@@ -85,36 +85,14 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId())
-        {
-            case R.id.action_settings:
-            {
-                Intent intent = new Intent();
-                intent.setClassName(this, "com.jcap.milwaukeedpw.AppSettingsActivity");
-                startActivity(intent);
-                return true;
-            }
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_settings) {
-            Intent i = new Intent(this, SettingsActivity.class);
-            startActivity(i);
+            Intent intent = new Intent();
+            intent.setClassName(this, "com.jcap.milwaukeedpw.AppSettingsActivity");
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
