@@ -13,10 +13,10 @@
         <item>W</item>
     </string-array>
 
-    <string-array name="streetValues">
+    <string-array name="streetNames">
         <item>Mabbett</item>
         <item>Oklahoma</item>
-        <item>VAN BUREN</item>
+        <item>Van Buren</item>
     </string-array>
 
     <string-array name="suffixNames">

@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity
 
         String updatedTime = getString(R.string.updated) + new SimpleDateFormat("M/d HH:mm:ss", Locale.US).format(new Date());
         try {
+            nextPickupText.setMovementMethod(LinkMovementMethod.getInstance());
             nextPickupText.setText(Html.fromHtml(taskResult.get()));
             updatedText.setText(updatedTime);
         } catch (InterruptedException | ExecutionException e) {
@@ -92,6 +94,11 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_settings) {
             Intent intent = new Intent();
             intent.setClassName(this, "com.jcap.milwaukeedpw.AppSettingsActivity");
+            startActivity(intent);
+        }
+        else if (id == R.id.nav_about) {
+            Intent intent = new Intent();
+            intent.setClassName(this, "com.jcap.milwaukeedpw.AboutActivity");
             startActivity(intent);
         }
 

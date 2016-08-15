@@ -18,8 +18,8 @@
         android:key="@string/pref_key_street"
         android:defaultValue=""
         android:summary="Select your street name"
-        android:entries="@array/streetValues"
-        android:entryValues="@array/streetValues" />
+        android:entries="@array/streetNames"
+        android:entryValues="@array/streetNames" />
 
     <ListPreference android:title="Suffix"
         android:key="@string/pref_key_suffix"

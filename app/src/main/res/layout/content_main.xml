@@ -12,6 +12,7 @@
     tools:context="com.jcap.milwaukeedpw.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
+
     <TextView
         android:id="@id/pickupUpdated"
         android:layout_width="fill_parent"
@@ -19,12 +20,19 @@
         android:gravity="right"
         android:text="@string/updated" />
 
-    <TextView
-        android:id="@id/nextPickupText"
+    <ScrollView android:id="@+id/textAreaScroller"
+        android:layout_width="fill_parent"
         android:layout_below="@id/pickupUpdated"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:scrollbars="vertical"
-        android:text="@string/next_pickup" />
+        android:layout_height="fill_parent">
+        <TextView
+            android:id="@id/nextPickupText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            android:textColor="#000000"
+            android:text="@string/next_pickup"
+            android:clickable="true" />
+    </ScrollView>
 
 </RelativeLayout>

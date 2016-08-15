@@ -10,7 +10,7 @@
 
     <!-- MainActivity Strings -->
     <string name="next_pickup">Next Pickup</string>
-    <string name="updated">Updated: </string>
+    <string name="updated">Updated:</string>
     <string name="preferences">Preferences</string>
 
     <!-- Settings Activity -->
@@ -20,4 +20,35 @@
     <string name="pref_key_directional">pref_key_directional</string>
     <string name="pref_key_suffix">pref_key_suffix</string>
     <string name="title_activity_app_settings">Settings</string>
+
+    <!-- About Activity -->
+    <string name="about">
+        <![CDATA[
+        <h3>Disclaimer</h3>
+        <p>
+        The information displayed in this application comes directly from the official City of Milwaukee web site*. That is, the application’s information is only as reliable as their information. Causes for incorrect information may be due to:
+        <li>Incorrect information provided by the city web site*</li>
+        <li>The city web site not being accessible.</li>
+        <li>The web site changing, thus “breaking” the manner in which this application uses the web site.</li>
+        <li>Your mom</li>
+        <li>Other changes beyond the control of this application.</li>
+        </p>
+        <p>
+            The City of Milwaukee’s “Web &amp; Email Policies” as of August 2016 states:
+            <blockquote>
+            <i>The City of Milwaukee is committed to proactively publish data in a structured standardized machine readable format to improve provision of services, increase transparency and access to public information, and enhance coordination and efficiency among departments, partner organizations and citizens.</i>
+            </blockquote>
+        </p>
+        <p>
+        The information retrieved and viewed within this application is intended to improve consumption of public information, and thus meets these policies.
+        </p>
+        <p>
+        * - The application currently uses this page for retrieving information: http://city.milwaukee.gov/mpw/divisions/operations/environmental/sanitation/GarbageRecyclingSchedules.htm
+        </p>
+        <h3>Copyright Information</h3>
+        <p>The image of Milwaukee has the following attribution: By Wantonlife (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0) or GFDL (http://www.gnu.org/copyleft/fdl.html)], via Wikimedia Commons</p>
+        <p>The source page is: https://commons.wikimedia.org/wiki/File%3AMke-collage.jpg</p>
+        <p>It was cropped such that only the top image in the collage is shown</p>
+        ]]>
+    </string>
 </resources>
