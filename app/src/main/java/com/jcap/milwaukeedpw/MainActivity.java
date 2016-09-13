@@ -52,11 +52,18 @@ public class MainActivity extends AppCompatActivity
         TextView nextPickupText = (TextView)findViewById(R.id.nextPickupText);
         TextView updatedText = (TextView)findViewById(R.id.pickupUpdated);
 
-        PickupLocationParameters params = new PickupLocationParameters(
-                prefs.getString(getString(R.string.pref_key_houseNumber), ""),
-                prefs.getString(getString(R.string.pref_key_directional), ""),
-                prefs.getString(getString(R.string.pref_key_street), ""),
-                prefs.getString(getString(R.string.pref_key_suffix), ""));
+        String houseNumber = prefs.getString(getString(R.string.pref_key_houseNumber), "");
+        String directional = prefs.getString(getString(R.string.pref_key_directional), "");
+        String street = prefs.getString(getString(R.string.pref_key_street), "");
+        String suffix = prefs.getString(getString(R.string.pref_key_suffix), "");
+
+        if (houseNumber.isEmpty() || directional.isEmpty() || street.isEmpty() || suffix.isEmpty()) {
+            updatedText.setText("");
+            nextPickupText.setText(R.string.no_address);
+            return;
+        }
+
+        PickupLocationParameters params = new PickupLocationParameters(houseNumber, directional, street, suffix);
 
         PickupTask task = new PickupTask();
         AsyncTask<PickupLocationParameters, Void, String> taskResult = task.execute(params);

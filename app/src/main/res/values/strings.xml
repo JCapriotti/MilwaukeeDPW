@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MilwaukeeDPW</string>
+    <string name="app_name">Milwaukee Garbage Schedule</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -51,4 +51,5 @@
         <p>It was cropped such that only the top image in the collage is shown</p>
         ]]>
     </string>
+    <string name="no_address">No address information set; please go to Settings to set.</string>
 </resources>
