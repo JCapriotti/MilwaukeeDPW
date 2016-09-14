@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_short_name">Garbage Schedule</string>
     <string name="app_name">Milwaukee Garbage Schedule</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
