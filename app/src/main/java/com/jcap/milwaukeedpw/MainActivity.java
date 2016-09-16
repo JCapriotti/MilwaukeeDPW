@@ -13,9 +13,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.jcap.milwaukeedpw.iab.IabHelper;
+import com.jcap.milwaukeedpw.iab.IabResult;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,12 +30,18 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         SharedPreferences.OnSharedPreferenceChangeListener {
 
+    static final String TAG = "MilwaukeeGarbage";
+
+    IabHelper mHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        setupIab();
 
         this.setTitle(getResources().getString(R.string.app_name));
 
@@ -48,6 +58,27 @@ public class MainActivity extends AppCompatActivity
         sharedPref.registerOnSharedPreferenceChangeListener(this);
 
         loadDisplay(sharedPref);
+    }
+
+    private String getPublicKey() {
+        return "";
+    }
+
+    private void setupIab() {
+        String base64EncodedPublicKey = getPublicKey();
+
+        // compute your public key and store it in base64EncodedPublicKey
+        mHelper = new IabHelper(this, base64EncodedPublicKey);
+
+        mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
+            public void onIabSetupFinished(IabResult result) {
+                if (!result.isSuccess()) {
+                    // Oh no, there was a problem.
+                    Log.d(TAG, "Problem setting up In-app Billing: " + result);
+                }
+                // Hooray, IAB is fully set up!
+            }
+        });
     }
 
     private void loadDisplay(SharedPreferences prefs) {
@@ -115,4 +146,16 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mHelper != null) try {
+            mHelper.dispose();
+        } catch (IabHelper.IabAsyncInProgressException e) {
+            e.printStackTrace();
+        }
+        mHelper = null;
+    }
+
 }
