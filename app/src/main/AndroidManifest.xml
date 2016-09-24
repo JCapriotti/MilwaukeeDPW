@@ -15,9 +15,11 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_short_name"
+            android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -31,9 +33,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jcap.milwaukeedpw.MainActivity" />
         </activity>
-        <activity android:name=".AboutActivity"
-            android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".AboutActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/title_about">
             <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jcap.milwaukeedpw.MainActivity" />
+        </activity>
+        <activity
+            android:name=".DonateActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/title_donate">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jcap.milwaukeedpw.MainActivity" />

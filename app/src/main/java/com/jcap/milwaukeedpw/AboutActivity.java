@@ -1,10 +1,10 @@
 package com.jcap.milwaukeedpw;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Html;
+import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
-import android.widget.TextView;
+
+import com.jcap.milwaukeedpw.utility.VersionHelper;
 
 public class AboutActivity extends AppCompatActivity {
 
@@ -13,8 +13,9 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        WebView contentArea = (WebView)findViewById(R.id.aboutContent);
-        String aboutText = getString(R.string.about);
+        WebView contentArea = (WebView) findViewById(R.id.aboutContent);
+        String aboutText = getString(R.string.about, VersionHelper.getVersion(this));
         contentArea.loadDataWithBaseURL(null, aboutText, "text/html", "utf-8", null);
     }
+
 }
