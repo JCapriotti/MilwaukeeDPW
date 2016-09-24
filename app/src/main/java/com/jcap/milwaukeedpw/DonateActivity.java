@@ -177,20 +177,26 @@ public class DonateActivity extends AppCompatActivity {
             }
 
             consumeTestProducts(inventory);
-
-            String lowPrice = inventory.getSkuDetails(SKU_DONATE_LOW).getPrice();
-            String mediumPrice = inventory.getSkuDetails(SKU_DONATE_MEDIUM).getPrice();
-            String highPrice = inventory.getSkuDetails(SKU_DONATE_HIGH).getPrice();
-
-            RadioButton radioLow = (RadioButton)findViewById(R.id.radio_low);
-            RadioButton radioMedium = (RadioButton)findViewById(R.id.radio_medium);
-            RadioButton radioHigh = (RadioButton)findViewById(R.id.radio_high);
-
-            radioLow.setText(lowPrice);
-            radioMedium.setText(mediumPrice);
-            radioHigh.setText(highPrice);
+            loadProductsFromInventory(inventory);
         }
     };
+
+    public void loadProductsFromInventory(Inventory inventory) {
+        String lowPrice = inventory.getSkuDetails(SKU_DONATE_LOW).getPrice();
+        String mediumPrice = inventory.getSkuDetails(SKU_DONATE_MEDIUM).getPrice();
+        String highPrice = inventory.getSkuDetails(SKU_DONATE_HIGH).getPrice();
+
+        RadioButton radioLow = (RadioButton)findViewById(R.id.radio_low);
+        RadioButton radioMedium = (RadioButton)findViewById(R.id.radio_medium);
+        RadioButton radioHigh = (RadioButton)findViewById(R.id.radio_high);
+
+        radioLow.setText(lowPrice);
+        radioLow.setEnabled(true);
+        radioMedium.setText(mediumPrice);
+        radioMedium.setEnabled(true);
+        radioHigh.setText(highPrice);
+        radioHigh.setEnabled(true);
+    }
 
     IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
         public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
