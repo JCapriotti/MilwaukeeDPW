@@ -62,8 +62,8 @@
     <string name="donate_info">I made this app for fun, and don\'t want to ruin it by charging for it or cluttering it with ads. If you like this free app, consider optionally paying for it.\n\nName your price!</string>
     <string name="donate_alert">Purchases are currently unavailable (%s)</string>
     <string name="donate_button">Submit</string>
-    <string name="donate_thankyou_title">Thanks!</string>
-    <string name="donate_thankyou_message">Thanks so much for your contribution; I greatly appreciate it.</string>
+    <string name="donate_thankyou_title">Thank You!</string>
+    <string name="donate_thankyou_message">Thank you very much for your contribution; I appreciate it!</string>
     <!-- Premium -->
     <string name="add_features">I am considering adding a feature to allow tracking multiple addresses. This goes beyond my needs, so it will be a premium feature. If this feature interests you, consider buying the premium version now. This is like a "kickstarter"… if I receive enough purchases, I will add the feature and you\'ll be able to use it.</string>
 

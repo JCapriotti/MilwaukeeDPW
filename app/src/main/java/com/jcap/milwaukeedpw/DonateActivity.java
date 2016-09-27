@@ -1,6 +1,7 @@
 package com.jcap.milwaukeedpw;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -65,6 +66,22 @@ public class DonateActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         mHelper = null;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d(TAG, "onActivityResult(" + requestCode + "," + resultCode + "," + data);
+
+        // Pass on the activity result to the helper for handling
+        if (!mHelper.handleActivityResult(requestCode, resultCode, data)) {
+            // not handled, so handle it ourselves (here's where you'd
+            // perform any handling of activity results not related to in-app
+            // billing...
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+        else {
+            Log.d(TAG, "onActivityResult handled by IABUtil.");
+        }
     }
 
     public void onSubmitClicked(View view){
@@ -199,19 +216,18 @@ public class DonateActivity extends AppCompatActivity {
     }
 
     IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
-        public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
+        public void onIabPurchaseFinished(IabResult result, Purchase purchase)  {
             if (result.isFailure()) {
                 Log.d(TAG, "Error purchasing: " + result);
             }
             else {
+                try {
+                    mHelper.consumeAsync(purchase, mConsumeFinishedListener);
+                } catch (IabHelper.IabAsyncInProgressException e) {
+                    e.printStackTrace();
+                }
                 showThankYou();
             }
-//            else if (purchase.getSku().equals(SKU_GAS)) {
-//                // consume the gas and update the UI
-//            }
-//            else if (purchase.getSku().equals(SKU_PREMIUM)) {
-//                // give user access to premium content and update the UI
-//            }
         }
     };
 
@@ -240,9 +256,9 @@ public class DonateActivity extends AppCompatActivity {
     private void consumeTestProducts(Inventory inventory) {
         if (VersionHelper.getIsPreRelease(this)) {
             try {
-                Purchase p = inventory.getPurchase(SKU_TEST);
-                if (p != null)
-                    mHelper.consumeAsync(p, mConsumeFinishedListener);
+                Purchase purchase = inventory.getPurchase(SKU_TEST);
+                if (purchase != null)
+                    mHelper.consumeAsync(purchase, mConsumeFinishedListener);
             } catch (Exception e) {
                 Log.d(TAG, e.toString());
             }
