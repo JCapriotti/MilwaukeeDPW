@@ -121,6 +121,11 @@ public class MainActivity extends AppCompatActivity
             intent.setClassName(this, "com.jcap.milwaukeedpw.DonateActivity");
             startActivity(intent);
         }
+        else if (id == R.id.nav_request) {
+            Intent intent = new Intent();
+            intent.setClassName(this, "com.jcap.milwaukeedpw.RequestServiceActivity");
+            startActivity(intent);
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

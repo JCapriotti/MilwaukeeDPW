@@ -7,8 +7,8 @@
     <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
-        android:debuggable="true"
         android:allowBackup="true"
+        android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_short_name"
         android:supportsRtl="true"
@@ -20,7 +20,6 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -36,8 +35,9 @@
         </activity>
         <activity
             android:name=".AboutActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/title_about">
+            android:label="@string/title_about"
+            android:parentActivityName=".MainActivity">
+
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -45,8 +45,16 @@
         </activity>
         <activity
             android:name=".DonateActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/title_donate">
+            android:label="@string/title_donate"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jcap.milwaukeedpw.MainActivity" />
+        </activity>
+        <activity
+            android:name=".RequestServiceActivity"
+            android:label="@string/title_request"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jcap.milwaukeedpw.MainActivity" />
