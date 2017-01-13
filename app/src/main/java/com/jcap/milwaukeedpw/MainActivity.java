@@ -13,14 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
-import android.util.Base64;
-import android.util.Log;
-import android.util.Base64;
 import android.view.MenuItem;
 import android.widget.TextView;
-
-import com.jcap.milwaukeedpw.iab.IabHelper;
-import com.jcap.milwaukeedpw.iab.IabResult;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -55,6 +49,8 @@ public class MainActivity extends AppCompatActivity
 
         loadDisplay(sharedPref);
     }
+
+    
 
     private void loadDisplay(SharedPreferences prefs) {
         TextView nextPickupText = (TextView)findViewById(R.id.nextPickupText);
@@ -122,6 +118,11 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
         }
         else if (id == R.id.nav_request) {
+            Intent intent = new Intent();
+            intent.setClassName(this, "com.jcap.milwaukeedpw.RequestServiceActivity");
+            startActivity(intent);
+        }
+        else if (id == R.id.nav_alerts) {
             Intent intent = new Intent();
             intent.setClassName(this, "com.jcap.milwaukeedpw.RequestServiceActivity");
             startActivity(intent);

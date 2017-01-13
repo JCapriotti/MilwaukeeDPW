@@ -10,6 +10,10 @@
             android:icon="@drawable/ic_contact_mail_black_24dp"
             android:title="@string/nav_request" />
         <item
+            android:id="@id/nav_alerts"
+            android:icon="@drawable/ic_add_alert_black_24dp"
+            android:title="@string/nav_alerts" />
+        <item
             android:id="@id/nav_about"
             android:icon="@drawable/information_outline"
             android:title="@string/nav_about" />
