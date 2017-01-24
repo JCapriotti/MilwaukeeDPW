@@ -22,4 +22,16 @@
             android:icon="@drawable/ic_action_emo_cool"
             android:title="@string/nav_donate" />
     </group>
+    <item android:title="@string/nav_more" android:icon="@drawable/ic_more_vert_black_24dp">
+        <menu>
+            <item
+                android:id="@id/nav_share"
+                android:icon="@drawable/ic_share_black_24dp"
+                android:title="@string/nav_share" />
+            <item
+                android:id="@id/nav_review"
+                android:icon="@drawable/ic_mode_edit_black_24dp"
+                android:title="@string/nav_review" />
+        </menu>
+    </item>
 </menu>

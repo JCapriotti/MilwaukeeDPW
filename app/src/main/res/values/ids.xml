@@ -7,6 +7,8 @@
     <item name="nav_donate" type="id" />
     <item name="nav_request" type="id" />
     <item name="nav_alerts" type="id" />
+    <item name="nav_review" type="id" />
+    <item name="nav_share" type="id" />
 
     <!--Donate-->
     <item name="radio_low" type="id" />

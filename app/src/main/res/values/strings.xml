@@ -11,6 +11,9 @@
     <string name="nav_alerts">Email/Text Alerts</string>
     <string name="nav_about">About</string>
     <string name="nav_donate">Contribute</string>
+    <string name="nav_more">More Options</string>
+    <string name="nav_share">Share</string>
+    <string name="nav_review">Review</string>
 
     <!-- MainActivity Strings -->
     <string name="next_pickup">Next Pickup</string>
@@ -92,6 +95,16 @@
     <string name="alert_link">
         See this page for more details: \n
         <a href="http://city.milwaukee.gov/enotify">http://city.milwaukee.gov/enotify</a>
+    </string>
+
+    <!-- New Version Popup -->
+    <string name="new_version_title">
+        New Version Information
+    </string>
+    <string name="new_version_details">
+        Thanks for installing! The latest changes include:\n
+        \n
+        \u2022 New menu item containing links for receiving text/email alerts
     </string>
 
 </resources>
