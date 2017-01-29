@@ -51,5 +51,15 @@
         android:id="@+id/request_snow"
         android:layout_below="@+id/request_street">
     </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:text="@string/request_parking"
+        android:id="@+id/request_parking"
+        android:layout_below="@+id/request_snow"
+        android:paddingTop="12dp">
+    </TextView>
+
 
 </RelativeLayout>

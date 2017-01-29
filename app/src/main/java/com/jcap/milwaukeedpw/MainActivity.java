@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity
     public void checkFirstRun() {
         String version = VersionHelper.getVersion(this);
         String preferenceKey = String.format("isFirstRun_%s", version);
-        boolean isFirstRun = true;//getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean(preferenceKey, true);
+        boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean(preferenceKey, true);
         if (isFirstRun) {
             new AlertDialog.Builder(MainActivity.this)
                     .setTitle(R.string.new_version_title)
@@ -158,6 +158,14 @@ public class MainActivity extends AppCompatActivity
         }
         else if (id == R.id.nav_review) {
             openAppStore();
+        }
+        else if (id == R.id.nav_share) {
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_SEND);
+            intent.putExtra(Intent.EXTRA_TEXT,
+                    "Check out the Milwaukee Garbage schedule app: https://play.google.com/store/apps/details?id=com.jcap.milwaukeedpw");
+            intent.setType("text/plain");
+            startActivity(intent);
         }
 
         item.setChecked(false);
