@@ -199,19 +199,22 @@ public class DonateActivity extends AppCompatActivity {
     };
 
     public void loadProductsFromInventory(Inventory inventory) {
-        String lowPrice = inventory.getSkuDetails(SKU_DONATE_LOW).getPrice();
-        String mediumPrice = inventory.getSkuDetails(SKU_DONATE_MEDIUM).getPrice();
-        String highPrice = inventory.getSkuDetails(SKU_DONATE_HIGH).getPrice();
+        String lowTitle = inventory.getSkuDetails(SKU_DONATE_LOW).getTitle();
+        String lowDescription = inventory.getSkuDetails(SKU_DONATE_LOW).getDescription();
+        String mediumTitle = inventory.getSkuDetails(SKU_DONATE_MEDIUM).getTitle();
+        String mediumDescription = inventory.getSkuDetails(SKU_DONATE_MEDIUM).getDescription();
+        String highTitle = inventory.getSkuDetails(SKU_DONATE_HIGH).getTitle();
+        String highDescription = inventory.getSkuDetails(SKU_DONATE_HIGH).getDescription();
 
         RadioButton radioLow = (RadioButton)findViewById(R.id.radio_low);
         RadioButton radioMedium = (RadioButton)findViewById(R.id.radio_medium);
         RadioButton radioHigh = (RadioButton)findViewById(R.id.radio_high);
 
-        radioLow.setText(lowPrice);
+        radioLow.setText(String.format("%s - %s", lowTitle, lowDescription));
         radioLow.setEnabled(true);
-        radioMedium.setText(mediumPrice);
+        radioMedium.setText(String.format("%s - %s", mediumTitle, mediumDescription));
         radioMedium.setEnabled(true);
-        radioHigh.setText(highPrice);
+        radioHigh.setText(String.format("%s - %s", highTitle, highDescription));
         radioHigh.setEnabled(true);
     }
 
