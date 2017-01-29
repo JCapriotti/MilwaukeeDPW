@@ -59,7 +59,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jcap.milwaukeedpw.MainActivity" />
         </activity>
-        <activity android:name=".AlertActivity" />
+        <activity android:name=".AlertActivity"
+            android:label="@string/title_alert"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jcap.milwaukeedpw.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

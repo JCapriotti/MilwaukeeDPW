@@ -81,6 +81,7 @@
     <string name="request_parking"><a href="http://city.milwaukee.gov/mpw/divisions/administrative/parking/Parking-Permit-Anchors/Temporary-Overnight-Parking-Permission.htm">Overnight Parking Request</a></string>
 
     <!-- Alerts -->
+    <string name="title_alert">Alerts</string>
     <string name="alert_text">
         The City of Milwaukee can send text notifications with the following information:\n
         \n
