@@ -101,7 +101,8 @@ public class MainActivity extends AppCompatActivity
         PickupTask task = new PickupTask();
         AsyncTask<PickupLocationParameters, Void, String> taskResult = task.execute(params);
 
-        String updatedTime = getString(R.string.updated) + new SimpleDateFormat("M/d HH:mm:ss", Locale.US).format(new Date());
+        String formattedTime = new SimpleDateFormat("M/d hh:mm aa", Locale.US).format(new Date());
+        String updatedTime = String.format("%s %s", getString(R.string.updated), formattedTime);
         try {
             nextPickupText.setMovementMethod(LinkMovementMethod.getInstance());
             nextPickupText.setText(Html.fromHtml(taskResult.get()));
