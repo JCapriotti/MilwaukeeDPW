@@ -19,6 +19,8 @@ import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.jcap.milwaukeedpw.utility.VersionHelper;
@@ -32,6 +34,8 @@ import java.util.concurrent.ExecutionException;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         SharedPreferences.OnSharedPreferenceChangeListener {
+
+    private Integer resetClickCounter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,7 @@ public class MainActivity extends AppCompatActivity
         loadDisplay(sharedPref);
 
         checkFirstRun();
+        resetClickCounter = 0;
     }
 
     public void checkFirstRun() {
@@ -82,6 +87,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void loadDisplay(SharedPreferences prefs) {
+        RelativeLayout main_nextPickup = (RelativeLayout)findViewById(R.id.main_nextPickup);
+        RelativeLayout main_noAddress = (RelativeLayout)findViewById(R.id.main_noAddress);
         TextView nextPickupText = (TextView)findViewById(R.id.nextPickupText);
         TextView updatedText = (TextView)findViewById(R.id.pickupUpdated);
 
@@ -91,9 +98,13 @@ public class MainActivity extends AppCompatActivity
         String suffix = prefs.getString(getString(R.string.pref_key_suffix), "");
 
         if (houseNumber.isEmpty() || directional.isEmpty() || street.isEmpty() || suffix.isEmpty()) {
-            updatedText.setText("");
-            nextPickupText.setText(R.string.no_address);
+            main_nextPickup.setVisibility(View.GONE);
+            main_noAddress.setVisibility(View.VISIBLE);
             return;
+        }
+        else {
+            main_nextPickup.setVisibility(View.VISIBLE);
+            main_noAddress.setVisibility(View.GONE);
         }
 
         PickupLocationParameters params = new PickupLocationParameters(houseNumber, directional, street, suffix);
@@ -196,6 +207,38 @@ public class MainActivity extends AppCompatActivity
         } catch (ActivityNotFoundException e) {
             startActivity(new Intent(Intent.ACTION_VIEW,
                     Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
+        }
+    }
+
+    public void onPickupTextClick(View view) {
+        showDeleteDataOption();
+    }
+
+    public void onOpenSettingsClick(View view) {
+        Intent intent = new Intent();
+        intent.setClassName(this, "com.jcap.milwaukeedpw.AppSettingsActivity");
+        startActivity(intent);
+    }
+
+    private void showDeleteDataOption() {
+        if (++resetClickCounter == 7) {
+            resetClickCounter = 0;
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle(R.string.reset_dialog_title)
+                    .setMessage(R.string.reset_dialog_message)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,int id) {
+                            PreferenceManager
+                                    .getDefaultSharedPreferences(getApplicationContext()).edit().clear().apply();
+                        }
+                    })
+                    .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,int id) {
+                            dialog.cancel();
+                        }
+                    })
+                    .show();
         }
     }
 

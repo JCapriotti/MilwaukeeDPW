@@ -5,6 +5,9 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
     <!-- Navigation Menu -->
     <string name="nav_settings">Settings</string>
     <string name="nav_request">Request Service / Parking</string>
@@ -19,7 +22,8 @@
     <string name="next_pickup">Next Pickup</string>
     <string name="updated">Updated:</string>
     <string name="preferences">Preferences</string>
-    <string name="no_address">No address information set; please go to Settings to set.</string>
+    <string name="no_address">Address information is not set.</string>
+    <string name="open_settings">Open Settings</string>
 
     <!-- Settings Activity -->
     <string name="pref_header_address">Address Settings</string>
@@ -60,6 +64,9 @@
         <p>Version: %s</p>
         ]]>
     </string>
+    <string name="reset_settings">Reset Settings</string>
+    <string name="reset_dialog_title">Reset?</string>
+    <string name="reset_dialog_message">Are you sure you want to clear the settings for this application?</string>
 
     <!-- Donate Activity -->
     <string name="title_donate">Contribute</string>

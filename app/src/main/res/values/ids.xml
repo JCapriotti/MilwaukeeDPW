@@ -10,6 +10,9 @@
     <item name="nav_review" type="id" />
     <item name="nav_share" type="id" />
 
+    <item name="main_nextPickup" type="id" />
+    <item name="main_noAddress" type="id" />
+
     <!--Donate-->
     <item name="radio_low" type="id" />
     <item name="radio_medium" type="id" />
