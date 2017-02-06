@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity
 
         loadDisplay(sharedPref);
 
-        checkFirstRun();
+//        checkFirstRun();
         resetClickCounter = 0;
     }
 
