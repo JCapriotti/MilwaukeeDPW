@@ -58,9 +58,12 @@
         * - The application currently uses this page for retrieving information: <a href="http://city.milwaukee.gov/mpw/divisions/operations/environmental/sanitation/GarbageRecyclingSchedules.htm">http://city.milwaukee.gov/mpw/divisions/operations/environmental/sanitation/GarbageRecyclingSchedules.htm</a>
         </p>
         <h3>Copyright Information</h3>
+        <h4>Milwaukee Image</h4>
         <p>The image of Milwaukee has the following attribution: By Wantonlife (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0) or GFDL (http://www.gnu.org/copyleft/fdl.html)], via Wikimedia Commons</p>
         <p>The source page is: https://commons.wikimedia.org/wiki/File%%3AMke-collage.jpg</p>
         <p>It was cropped such that only the top image in the collage is shown</p>
+        <h4>Dumpster Icon</h4>
+        <p>Icon made by <a href="https://www.flaticon.com/authors/nikita-golubev">Nikita Golubev</a> from <a href="https://www.flaticon.com">www.flaticon.com</a>
         <p>Version: %s</p>
         ]]>
     </string>
