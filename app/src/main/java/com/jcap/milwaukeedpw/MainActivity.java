@@ -81,7 +81,8 @@ public class MainActivity extends AppCompatActivity
                     .show();
             getSharedPreferences("PREFERENCE", MODE_PRIVATE)
                     .edit()
-                    .putBoolean(preferenceKey, false)
+                    .putBoolean(preferenceKey,
+                            false)
                     .apply();
         }
     }
@@ -172,12 +173,7 @@ public class MainActivity extends AppCompatActivity
             openAppStore();
         }
         else if (id == R.id.nav_share) {
-            Intent intent = new Intent();
-            intent.setAction(Intent.ACTION_SEND);
-            intent.putExtra(Intent.EXTRA_TEXT,
-                    "Check out the Milwaukee Garbage schedule app: https://play.google.com/store/apps/details?id=com.jcap.milwaukeedpw");
-            intent.setType("text/plain");
-            startActivity(intent);
+            share();
         }
 
         item.setChecked(false);
@@ -185,6 +181,15 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void share() {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_TEXT,
+                "Check out the Milwaukee Garbage schedule app: https://play.google.com/store/apps/details?id=com.jcap.milwaukeedpw");
+        intent.setType("text/plain");
+        startActivity(intent);
     }
 
     public void openAppStore() {
@@ -242,4 +247,11 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    public void onReviewClick(View view) {
+        openAppStore();
+    }
+
+    public void onShareClick(View view) {
+        share();
+    }
 }

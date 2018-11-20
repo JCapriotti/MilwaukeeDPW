@@ -22,7 +22,8 @@
     <string name="next_pickup">Next Pickup</string>
     <string name="updated">Updated:</string>
     <string name="preferences">Preferences</string>
-    <string name="no_address">Address information is not set.</string>
+    <string name="no_address">Welcome! \n\nPlease open settings to set your address.</string>
+    <string name="no_address_review">Or… please add a review if you don\'t like this app!</string>
     <string name="open_settings">Open Settings</string>
 
     <!-- Settings Activity -->
@@ -116,9 +117,9 @@
     <string name="new_version_details">
         Thanks for installing! The latest changes include:\n
         \n
-        \u2022 Links for receiving text/email alerts\n
-        \u2022 Parking request shortcut\n
-        \u2022 Share and review options\n
+        \u2022 Updates to support the latest versions of Android\n
+        \n
+        I like that you are using this app; please consider reviewing or sharing this app with others!
     </string>
 
 </resources>
