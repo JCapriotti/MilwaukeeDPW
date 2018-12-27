@@ -13,7 +13,6 @@
     <string name="nav_request">Request Service / Parking</string>
     <string name="nav_alerts">Email/Text Alerts</string>
     <string name="nav_about">About</string>
-    <string name="nav_donate">Contribute</string>
     <string name="nav_more">More Options</string>
     <string name="nav_share">Share</string>
     <string name="nav_review">Review</string>
@@ -82,13 +81,6 @@
     <string name="reset_dialog_title">Reset?</string>
     <string name="reset_dialog_message">Are you sure you want to clear the settings for this application?</string>
 
-    <!-- Donate Activity -->
-    <string name="title_donate">Contribute</string>
-    <string name="donate_info">I made this app for fun, and don\'t want to ruin it by charging for it or cluttering it with ads. If you like this free app, consider optionally paying for it.\n\nName your price!</string>
-    <string name="donate_alert">Purchases are currently unavailable (%s)</string>
-    <string name="donate_button">Submit</string>
-    <string name="donate_thankyou_title">Thank You!</string>
-    <string name="donate_thankyou_message">Thank you very much for your contribution; I appreciate it!</string>
     <!-- Premium -->
     <string name="add_features">I am considering adding a feature to allow tracking multiple addresses. This goes beyond my needs, so it will be a premium feature. If this feature interests you, consider buying the premium version now. This is like a "kickstarter"… if I receive enough purchases, I will add the feature and you\'ll be able to use it.</string>
 

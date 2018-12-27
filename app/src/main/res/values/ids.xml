@@ -4,7 +4,6 @@
     <item name="pickupUpdated" type="id" />
     <item name="nav_settings" type="id" />
     <item name="nav_about" type="id" />
-    <item name="nav_donate" type="id" />
     <item name="nav_request" type="id" />
     <item name="nav_alerts" type="id" />
     <item name="nav_review" type="id" />
@@ -13,9 +12,4 @@
 
     <item name="main_nextPickup" type="id" />
     <item name="main_noAddress" type="id" />
-
-    <!--Donate-->
-    <item name="radio_low" type="id" />
-    <item name="radio_medium" type="id" />
-    <item name="radio_high" type="id" />
 </resources>

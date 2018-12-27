@@ -156,11 +156,6 @@ public class MainActivity extends AppCompatActivity
             intent.setClassName(this, "com.jcap.milwaukeedpw.AboutActivity");
             startActivity(intent);
         }
-        else if (id == R.id.nav_donate) {
-            Intent intent = new Intent();
-            intent.setClassName(this, "com.jcap.milwaukeedpw.DonateActivity");
-            startActivity(intent);
-        }
         else if (id == R.id.nav_request) {
             Intent intent = new Intent();
             intent.setClassName(this, "com.jcap.milwaukeedpw.RequestServiceActivity");
