@@ -8,13 +8,14 @@
     <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
-        android:fullBackupContent="@xml/backup_rules"
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_short_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:networkSecurityConfig="@xml/network_security_config"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".MainActivity"
@@ -63,13 +64,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jcap.milwaukeedpw.MainActivity" />
         </activity>
-        <activity android:name=".AlertActivity"
+        <activity
+            android:name=".AlertActivity"
             android:label="@string/title_alert"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jcap.milwaukeedpw.MainActivity" />
         </activity>
+
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/network_security_config" />
     </application>
 
 </manifest>
