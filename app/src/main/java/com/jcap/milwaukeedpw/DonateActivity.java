@@ -85,7 +85,7 @@ public class DonateActivity extends AppCompatActivity {
     }
 
     public void onSubmitClicked(View view){
-        RadioGroup optionGroup = (RadioGroup)findViewById(R.id.donate_options);
+        RadioGroup optionGroup = findViewById(R.id.donate_options);
         int optionId = optionGroup.getCheckedRadioButtonId();
         String selectedSku = "";
 
@@ -115,7 +115,7 @@ public class DonateActivity extends AppCompatActivity {
     }
 
     public void onRadioButtonClicked(View view) {
-        Button button = (Button)findViewById(R.id.donate_button);
+        Button button = findViewById(R.id.donate_button);
         button.setEnabled(true);
     }
 
@@ -168,10 +168,10 @@ public class DonateActivity extends AppCompatActivity {
     }
 
     private void updateDisplayWithBillingProblem(String result) {
-        Button button = (Button)findViewById(R.id.donate_button);
+        Button button = findViewById(R.id.donate_button);
         button.setEnabled(false);
 
-        TextView alert = (TextView) findViewById(R.id.donate_alert);
+        TextView alert = findViewById(R.id.donate_alert);
         alert.setText(getResources().getString(R.string.donate_alert, result));
         alert.setVisibility(View.VISIBLE);
     }
@@ -207,9 +207,9 @@ public class DonateActivity extends AppCompatActivity {
         String mediumDescription = inventory.getSkuDetails(SKU_DONATE_MEDIUM).getDescription();
         String highDescription = inventory.getSkuDetails(SKU_DONATE_HIGH).getDescription();
 
-        RadioButton radioLow = (RadioButton)findViewById(R.id.radio_low);
-        RadioButton radioMedium = (RadioButton)findViewById(R.id.radio_medium);
-        RadioButton radioHigh = (RadioButton)findViewById(R.id.radio_high);
+        RadioButton radioLow = findViewById(R.id.radio_low);
+        RadioButton radioMedium = findViewById(R.id.radio_medium);
+        RadioButton radioHigh = findViewById(R.id.radio_high);
 
         radioLow.setText(String.format("%s - %s", lowPrice, lowDescription));
         radioLow.setEnabled(true);

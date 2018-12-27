@@ -21,7 +21,7 @@ public class RequestServiceActivity extends AppCompatActivity {
                 R.id.request_parking};
 
         for (int link: links) {
-            TextView textView = (TextView)findViewById(link);
+            TextView textView = findViewById(link);
             textView.setMovementMethod(LinkMovementMethod.getInstance());
         }
     }

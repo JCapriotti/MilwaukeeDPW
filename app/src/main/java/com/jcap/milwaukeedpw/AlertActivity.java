@@ -14,7 +14,7 @@ public class AlertActivity extends AppCompatActivity {
         setContentView(R.layout.activity_alert);
         setupActionBar();
 
-        TextView alert_link = (TextView)findViewById(R.id.alert_link);
+        TextView alert_link = findViewById(R.id.alert_link);
         alert_link.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
