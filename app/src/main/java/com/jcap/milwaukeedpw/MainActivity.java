@@ -24,6 +24,8 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.jcap.milwaukeedpw.utility.VersionHelper;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -60,30 +62,32 @@ public class MainActivity extends AppCompatActivity
         loadDisplay(sharedPref);
 
         resetClickCounter = 0;
+
+        checkFirstRun();
     }
 
-//    public void checkFirstRun() {
-//        String version = VersionHelper.getVersion(this);
-//        String preferenceKey = String.format("isFirstRun_%s", version);
-//        boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean(preferenceKey, true);
-//        if (isFirstRun) {
-//            new AlertDialog.Builder(MainActivity.this)
-//                    .setTitle(R.string.new_version_title)
-//                    .setMessage(R.string.new_version_details)
-//                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-//                        public void onClick(DialogInterface dialog, int which) {
-//                            // do nothing
-//                        }
-//                    })
-//                    .setIcon(android.R.drawable.ic_dialog_info)
-//                    .show();
-//            getSharedPreferences("PREFERENCE", MODE_PRIVATE)
-//                    .edit()
-//                    .putBoolean(preferenceKey,
-//                            false)
-//                    .apply();
-//        }
-//    }
+    public void checkFirstRun() {
+        String version = VersionHelper.getVersion(this);
+        String preferenceKey = String.format("isFirstRun_%s", version);
+        boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean(preferenceKey, true);
+        if (isFirstRun) {
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle(R.string.new_version_title)
+                    .setMessage(R.string.new_version_details)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // do nothing
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_info)
+                    .show();
+            getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                    .edit()
+                    .putBoolean(preferenceKey,
+                            false)
+                    .apply();
+        }
+    }
 
     private void loadDisplay(SharedPreferences prefs) {
         RelativeLayout main_nextPickup = findViewById(R.id.main_nextPickup);
@@ -173,6 +177,9 @@ public class MainActivity extends AppCompatActivity
         else if (id == R.id.nav_share) {
             share();
         }
+        else if (id == R.id.nav_recycling) {
+            openRecyclingInfo();
+        }
 
         item.setChecked(false);
 
@@ -188,6 +195,11 @@ public class MainActivity extends AppCompatActivity
                 "Check out the Milwaukee Garbage schedule app: https://play.google.com/store/apps/details?id=com.jcap.milwaukeedpw");
         intent.setType("text/plain");
         startActivity(intent);
+    }
+
+    public void openRecyclingInfo() {
+        startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://www.jasoncapriotti.com/garbage/recylcing")));
     }
 
     public void openAppStore() {

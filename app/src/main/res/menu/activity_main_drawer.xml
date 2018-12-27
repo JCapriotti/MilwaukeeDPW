@@ -6,6 +6,10 @@
             android:icon="@drawable/settings"
             android:title="@string/nav_settings" />
         <item
+            android:id="@id/nav_recycling"
+            android:icon="@drawable/ic_recycle_sign"
+            android:title="@string/nav_recycling" />
+        <item
             android:id="@id/nav_request"
             android:icon="@drawable/ic_contact_mail_black_24dp"
             android:title="@string/nav_request" />
