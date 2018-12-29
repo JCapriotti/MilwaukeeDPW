@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity
 
     public void openRecyclingInfo() {
         startActivity(new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://www.jasoncapriotti.com/garbage/recylcing")));
+                Uri.parse("http://www.jasoncapriotti.com/garbage/recycling")));
     }
 
     public void openAppStore() {
