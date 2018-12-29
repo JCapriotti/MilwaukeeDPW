@@ -14,9 +14,4 @@ public class VersionHelper {
         }
         return info != null ? info.versionName : "";
     }
-
-    public static boolean getIsPreRelease(Context context) {
-        CharSequence beta = "beta";
-        return getVersion(context).contains(beta);
-    }
 }

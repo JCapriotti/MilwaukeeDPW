@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 28
@@ -8,8 +9,8 @@ android {
         applicationId "com.jcap.milwaukeedpw"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 18
-        versionName "2.1.1"
+        versionCode 19
+        versionName "2.0.0"
     }
     buildTypes {
         release {
@@ -27,4 +28,5 @@ dependencies {
     api 'com.android.support:design:28.0.0'
     api 'com.android.support:preference-v7:28.0.0'
     api 'com.android.support:support-v4:28.0.0'
+    implementation 'com.google.firebase:firebase-core:16.0.6'
 }

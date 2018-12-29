@@ -24,6 +24,8 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.jcap.milwaukeedpw.utility.Analytics;
 import com.jcap.milwaukeedpw.utility.VersionHelper;
 
 import java.text.SimpleDateFormat;
@@ -37,10 +39,14 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences.OnSharedPreferenceChangeListener {
 
     private Integer resetClickCounter;
+    private FirebaseAnalytics firebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        Analytics.Log(firebaseAnalytics, "Activity", "Main");
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -149,30 +155,37 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_settings) {
             Intent intent = new Intent();
             intent.setClassName(this, "com.jcap.milwaukeedpw.AppSettingsActivity");
+            Analytics.Log(firebaseAnalytics, "Activity", "Settings");
             startActivity(intent);
         }
         else if (id == R.id.nav_about) {
             Intent intent = new Intent();
             intent.setClassName(this, "com.jcap.milwaukeedpw.AboutActivity");
+            Analytics.Log(firebaseAnalytics, "Activity", "About");
             startActivity(intent);
         }
         else if (id == R.id.nav_request) {
             Intent intent = new Intent();
             intent.setClassName(this, "com.jcap.milwaukeedpw.RequestServiceActivity");
+            Analytics.Log(firebaseAnalytics, "Activity", "RequestService");
             startActivity(intent);
         }
         else if (id == R.id.nav_alerts) {
             Intent intent = new Intent();
             intent.setClassName(this, "com.jcap.milwaukeedpw.AlertActivity");
+            Analytics.Log(firebaseAnalytics, "Activity", "Alert");
             startActivity(intent);
         }
         else if (id == R.id.nav_review) {
+            Analytics.Log(firebaseAnalytics, "Activity", "Review");
             openAppStore();
         }
         else if (id == R.id.nav_share) {
+            Analytics.Log(firebaseAnalytics, "Activity", "Share");
             share();
         }
         else if (id == R.id.nav_recycling) {
+            Analytics.Log(firebaseAnalytics, "Activity", "Recycling");
             openRecyclingInfo();
         }
 
