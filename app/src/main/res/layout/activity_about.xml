@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/aboutContent"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"

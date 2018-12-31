@@ -177,15 +177,12 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
         }
         else if (id == R.id.nav_review) {
-            Analytics.Log(firebaseAnalytics, "Activity", "Review");
             openAppStore();
         }
         else if (id == R.id.nav_share) {
-            Analytics.Log(firebaseAnalytics, "Activity", "Share");
             share();
         }
         else if (id == R.id.nav_recycling) {
-            Analytics.Log(firebaseAnalytics, "Activity", "Recycling");
             openRecyclingInfo();
         }
 
@@ -197,6 +194,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void share() {
+        Analytics.Log(firebaseAnalytics, "Activity", "Share");
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_SEND);
         intent.putExtra(Intent.EXTRA_TEXT,
@@ -206,11 +204,13 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void openRecyclingInfo() {
+        Analytics.Log(firebaseAnalytics, "Activity", "Recycling");
         startActivity(new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://www.jasoncapriotti.com/garbage/recycling")));
+                Uri.parse("http://www.jasonmke.com/garbage/recycling")));
     }
 
     public void openAppStore() {
+        Analytics.Log(firebaseAnalytics, "Activity", "Review");
         Uri uri = Uri.parse("market://details?id=" + getPackageName());
         Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
         // To count with Play market backstack, After pressing back button,
