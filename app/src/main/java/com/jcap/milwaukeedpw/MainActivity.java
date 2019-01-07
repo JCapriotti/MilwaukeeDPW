@@ -159,10 +159,9 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
         }
         else if (id == R.id.nav_about) {
-            Intent intent = new Intent();
-            intent.setClassName(this, "com.jcap.milwaukeedpw.AboutActivity");
             Analytics.Log(firebaseAnalytics, "Activity", "About");
-            startActivity(intent);
+            startActivity(new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("http://www.jasonmke.com/garbage")));
         }
         else if (id == R.id.nav_request) {
             Intent intent = new Intent();
