@@ -10,6 +10,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,15 +23,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
-import android.text.method.LinkMovementMethod;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import com.google.firebase.analytics.FirebaseAnalytics;
-import com.jcap.milwaukeedpw.utility.Analytics;
 import com.jcap.milwaukeedpw.utility.VersionHelper;
 
 import java.text.SimpleDateFormat;
@@ -39,13 +37,10 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences.OnSharedPreferenceChangeListener {
 
     private Integer resetClickCounter;
-    private FirebaseAnalytics firebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
-        Analytics.Log(firebaseAnalytics, "Activity", "Main");
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -155,24 +150,20 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_settings) {
             Intent intent = new Intent();
             intent.setClassName(this, "com.jcap.milwaukeedpw.AppSettingsActivity");
-            Analytics.Log(firebaseAnalytics, "Activity", "Settings");
             startActivity(intent);
         }
         else if (id == R.id.nav_about) {
-            Analytics.Log(firebaseAnalytics, "Activity", "About");
             startActivity(new Intent(Intent.ACTION_VIEW,
                     Uri.parse("http://www.jasonmke.com/garbage")));
         }
         else if (id == R.id.nav_request) {
             Intent intent = new Intent();
             intent.setClassName(this, "com.jcap.milwaukeedpw.RequestServiceActivity");
-            Analytics.Log(firebaseAnalytics, "Activity", "RequestService");
             startActivity(intent);
         }
         else if (id == R.id.nav_alerts) {
             Intent intent = new Intent();
             intent.setClassName(this, "com.jcap.milwaukeedpw.AlertActivity");
-            Analytics.Log(firebaseAnalytics, "Activity", "Alert");
             startActivity(intent);
         }
         else if (id == R.id.nav_review) {
@@ -193,7 +184,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void share() {
-        Analytics.Log(firebaseAnalytics, "Activity", "Share");
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_SEND);
         intent.putExtra(Intent.EXTRA_TEXT,
@@ -203,13 +193,11 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void openRecyclingInfo() {
-        Analytics.Log(firebaseAnalytics, "Activity", "Recycling");
         startActivity(new Intent(Intent.ACTION_VIEW,
                 Uri.parse("http://www.jasonmke.com/garbage/recycling")));
     }
 
     public void openAppStore() {
-        Analytics.Log(firebaseAnalytics, "Activity", "Review");
         Uri uri = Uri.parse("market://details?id=" + getPackageName());
         Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
         // To count with Play market backstack, After pressing back button,
