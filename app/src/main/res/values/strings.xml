@@ -25,6 +25,7 @@
     <string name="no_address">Welcome! \n\nPlease open settings to set your address.</string>
     <string name="no_address_review">Or… please add a review if you don\'t like this app!</string>
     <string name="open_settings">Open Settings</string>
+    <string name="report_problem">Report a Problem</string>
 
     <!-- Settings Activity -->
     <string name="pref_header_address">Address Settings</string>
@@ -77,6 +78,9 @@
     <string name="new_version_details">
         Thanks for installing! The latest changes include:\n
         \n
+        \u2022 FINALLY fixed the updated DPW URL so information is once again available.\n
+        \n
+        All this great information is still available:\n
         \u2022 Information about local recycling\n
         \u2022 Updated About screen\n
         \u2022 Updates to support the latest versions of Android\n

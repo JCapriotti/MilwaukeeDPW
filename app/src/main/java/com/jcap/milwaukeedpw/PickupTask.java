@@ -22,7 +22,8 @@ public class PickupTask extends AsyncTask<PickupLocationParameters, Void, String
         }
 
         if (doc == null)
-            return "Unable to get data";
+            return "<p>There was a problem connecting to the Milwaukee DPW servers. Please try again later or report this problem to the app developer.</p>" +
+                    "<p><a href=\"mailto: info@jasonmke.com\">Click Here</a> to report a problem.</p>";
         else
             return doc.html();
     }
